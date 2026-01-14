@@ -1,0 +1,84 @@
+[gd_scene load_steps=9 format=3 uid="uid://7sx340yere3d"]
+
+[ext_resource type="PackedScene" uid="uid://clsclallfg8yk" path="res://scenes/character_body_2d.tscn" id="1_u52ul"]
+[ext_resource type="Texture2D" uid="uid://bapsh36krydq2" path="res://image.webp" id="2_vonw3"]
+[ext_resource type="PackedScene" uid="uid://boh6e431e56dd" path="res://scenes/enemy_template.tscn" id="3_w8frs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vonw3"]
+size = Vector2(1050.5, 59)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oi3di"]
+size = Vector2(992, 35)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0b4ue"]
+size = Vector2(33, 117)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f2txt"]
+size = Vector2(19, 122.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ainy"]
+size = Vector2(20, 125)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_u52ul")]
+collision_layer = 4
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(360.75, 123.5)
+shape = SubResource("RectangleShape2D_vonw3")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
+position = Vector2(361, 123.5)
+scale = Vector2(2.3755655, 0.3206522)
+texture = ExtResource("2_vonw3")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1212, 77)
+shape = SubResource("RectangleShape2D_oi3di")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(1211.0001, 77)
+scale = Vector2(2.244344, 0.19565217)
+texture = ExtResource("2_vonw3")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(567.5, -4.5)
+shape = SubResource("RectangleShape2D_0b4ue")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D3"]
+position = Vector2(567.5, -4.5)
+scale = Vector2(0.07466057, 0.63586956)
+texture = ExtResource("2_vonw3")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+position = Vector2(730, -77.625)
+shape = SubResource("RectangleShape2D_f2txt")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D4"]
+position = Vector2(730.00006, -78)
+scale = Vector2(0.04524886, 0.67391294)
+texture = ExtResource("2_vonw3")
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5"]
+position = Vector2(527, -168.5)
+shape = SubResource("RectangleShape2D_1ainy")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D5"]
+position = Vector2(527, -169)
+scale = Vector2(0.049773756, 0.6956521)
+texture = ExtResource("2_vonw3")
+
+[node name="EnemyTemplate" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_w8frs")]
+position = Vector2(94, 27)
+player = NodePath("../CharacterBody2D")
