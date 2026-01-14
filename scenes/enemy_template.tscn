@@ -1,14 +1,14 @@
 [gd_scene load_steps=13 format=3 uid="uid://boh6e431e56dd"]
 
 [ext_resource type="Script" uid="uid://ws617toumk4" path="res://scenes/enemy_template.gd" id="1_l1ctd"]
-[ext_resource type="Texture2D" uid="uid://bcfhuava86jxp" path="res://character sprites/enemytemplate/walk1new.png" id="2_8breo"]
-[ext_resource type="Texture2D" uid="uid://c3shhl3qd15ld" path="res://character sprites/enemytemplate/enemy1_alerted.png" id="2_hlu06"]
-[ext_resource type="Texture2D" uid="uid://bcmht0aawymm6" path="res://character sprites/enemytemplate/enemy1_dormant.png" id="2_l1ctd"]
-[ext_resource type="Texture2D" uid="uid://cbx48b33kpu5i" path="res://character sprites/enemytemplate/walk1.png" id="3_ndwwp"]
-[ext_resource type="Texture2D" uid="uid://c8b2u2fy8drsw" path="res://character sprites/enemytemplate/walk2.png" id="4_sut0l"]
-[ext_resource type="Texture2D" uid="uid://nyj3nkng2pno" path="res://character sprites/enemytemplate/walk3new.png" id="5_465an"]
-[ext_resource type="Texture2D" uid="uid://bq4oanw4mm4iw" path="res://character sprites/enemytemplate/walk3.png" id="6_11bud"]
-[ext_resource type="Texture2D" uid="uid://ch1s4kgfdg5s" path="res://character sprites/enemytemplate/walk4.png" id="7_itbtn"]
+[ext_resource type="Texture2D" uid="uid://bcfhuava86jxp" path="res://sprites/enemytemplate/walk1new.png" id="2_8breo"]
+[ext_resource type="Texture2D" uid="uid://c3shhl3qd15ld" path="res://sprites/enemytemplate/enemy1_alerted.png" id="2_hlu06"]
+[ext_resource type="Texture2D" uid="uid://bcmht0aawymm6" path="res://sprites/enemytemplate/enemy1_dormant.png" id="2_l1ctd"]
+[ext_resource type="Texture2D" uid="uid://cbx48b33kpu5i" path="res://sprites/enemytemplate/walk1.png" id="3_ndwwp"]
+[ext_resource type="Texture2D" uid="uid://c8b2u2fy8drsw" path="res://sprites/enemytemplate/walk2.png" id="4_sut0l"]
+[ext_resource type="Texture2D" uid="uid://nyj3nkng2pno" path="res://sprites/enemytemplate/walk3new.png" id="5_465an"]
+[ext_resource type="Texture2D" uid="uid://bq4oanw4mm4iw" path="res://sprites/enemytemplate/walk3.png" id="6_11bud"]
+[ext_resource type="Texture2D" uid="uid://ch1s4kgfdg5s" path="res://sprites/enemytemplate/walk4.png" id="7_itbtn"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_q5010"]
 animations = [{

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bq4oanw4mm4iw"
-path="res://.godot/imported/walk3.png-e3a00dadb76ddbf43550effa17b75ebe.ctex"
+uid="uid://cqn44qcmk65r"
+path="res://.godot/imported/jump.png-e1150806d4411504f5915dfd62b7c1d2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://character sprites/enemytemplate/walk3.png"
-dest_files=["res://.godot/imported/walk3.png-e3a00dadb76ddbf43550effa17b75ebe.ctex"]
+source_file="res://sprites/enemytemplate/jump.png"
+dest_files=["res://.godot/imported/jump.png-e1150806d4411504f5915dfd62b7c1d2.ctex"]
 
 [params]
 
