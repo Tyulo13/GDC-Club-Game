@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://by74uehj3o32q"]
-
-[ext_resource type="Texture2D" uid="uid://6we4ma8io3ae" path="res://hook_ring_placeholder.webp" id="1_wtcfe"]
-
-[node name="Node2D" type="Node2D"]
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture_filter = 1
-texture = ExtResource("1_wtcfe")
