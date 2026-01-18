@@ -68,9 +68,8 @@ animations = [{
 "speed": 13.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c5xty"]
-radius = 5.0
-height = 20.0
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_hlu06"]
+points = PackedVector2Array(-1, -9, -4, -1, -1, 10, 2, -1)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hlu06"]
 radius = 6.0
@@ -87,7 +86,7 @@ animation = &"alert"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)
-shape = SubResource("CapsuleShape2D_c5xty")
+shape = SubResource("ConvexPolygonShape2D_hlu06")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 2
