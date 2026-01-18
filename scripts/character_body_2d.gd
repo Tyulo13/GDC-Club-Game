@@ -134,7 +134,7 @@ func _physics_process(delta: float) -> void:
 			# if low velocity, quickly deccelerates the player to stop
 	
 	# dash input
-	if Input.is_action_just_pressed("dash") and canDASH and !is_on_wall_only():
+	if Input.is_action_just_pressed("dash") and canDASH and !is_on_wall_only() and velocity.x != 0:
 		isDASHING = true
 		velocity.y = velocity.y - velocity.y
 		velocity.x = velocity.x / 100

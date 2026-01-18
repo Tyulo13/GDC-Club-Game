@@ -11,8 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://xuefs1a6p1fs" path="res://sprites/vfx/sliceanims/slice5move.png" id="9_42hdn"]
 [ext_resource type="Texture2D" uid="uid://beuflhkloijnj" path="res://sprites/vfx/sliceanims/slice6move.png" id="10_el37e"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_44cfe"]
-size = Vector2(4, 12)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mfdas"]
+radius = 3.0
+height = 12.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ghijl"]
 atlas = ExtResource("2_ij6vw")
@@ -329,7 +330,7 @@ collision_mask = 3
 script = ExtResource("1_ij6vw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_44cfe")
+shape = SubResource("CapsuleShape2D_mfdas")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
