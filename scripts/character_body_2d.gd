@@ -15,6 +15,7 @@ var DIRECTION := 1
 var InputDIRECTION := 1
 
 var canDOUBLEJUMP := true
+var canATTACK : bool = true
 
 var isDASHING := false
 var canDASH := true
@@ -105,7 +106,12 @@ func _physics_process(delta: float) -> void:
 		velocity.y = 900
 	else:
 		isDIVING = false
-	
+		
+	if Input.is_action_just_pressed("attack") and canATTACK == true:
+		canATTACK = false
+		$SliceAnim.play("default")
+		await(get_tree().create_timer(0.5, true, false, true).timeout)
+		canATTACK = true
 	
 	
 	# moves the player left and right
