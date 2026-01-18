@@ -16,6 +16,7 @@ var InputDIRECTION := 1
 
 var canDOUBLEJUMP := true
 var canATTACK : bool = true
+var attacking : bool = false
 
 var isDASHING := false
 var canDASH := true
@@ -107,12 +108,14 @@ func _physics_process(delta: float) -> void:
 	else:
 		isDIVING = false
 		
-	if Input.is_action_just_pressed("attack") and canATTACK == true:
+	if Input.is_action_just_pressed("attack") and canATTACK == true and is_on_floor() and isDASHING == false:
 		canATTACK = false
+		attacking = true
 		$SliceAnim.play("default")
-		await(get_tree().create_timer(0.5, true, false, true).timeout)
+		await(get_tree().create_timer(0.15, true, false, true).timeout)
+		attacking = false
+		await(get_tree().create_timer(0.1, true, false, true).timeout)
 		canATTACK = true
-	
 	
 	# moves the player left and right
 	if direction and !isWALLRUN:
@@ -185,9 +188,12 @@ func _physics_process(delta: float) -> void:
 		if is_on_wall_only():
 			$AnimatedSprite2D.flip_h = false
 		DIRECTION = -1
+	$SliceAnim.flip_h = $AnimatedSprite2D.flip_h
 	
 	# all animations
-	if isDASHING:
+	if attacking:
+		$AnimatedSprite2D.animation = "attack"
+	elif isDASHING:
 		$AnimatedSprite2D.animation = "dash"
 	elif is_on_floor():
 		if direction:
@@ -204,7 +210,7 @@ func _physics_process(delta: float) -> void:
 			$AnimatedSprite2D.animation = "rising"
 		else:
 			$AnimatedSprite2D.animation = "falling"
-		
+
 	
 	
 	$AnimatedSprite2D.play()

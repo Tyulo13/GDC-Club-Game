@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ca1tbmaedtk7x"
-path="res://.godot/imported/slice1.png-9ac10c6b0904ff78fc1b5652a8eb2331.ctex"
+uid="uid://dpmpa5ainhywo"
+path="res://.godot/imported/charattack2.png-ad453257dc7a91f7d4a8ac4c5ebd1e28.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/vfx/sliceanims/slice1.png"
-dest_files=["res://.godot/imported/slice1.png-9ac10c6b0904ff78fc1b5652a8eb2331.ctex"]
+source_file="res://sprites/character/charattack2.png"
+dest_files=["res://.godot/imported/charattack2.png-ad453257dc7a91f7d4a8ac4c5ebd1e28.ctex"]
 
 [params]
 

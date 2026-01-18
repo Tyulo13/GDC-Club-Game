@@ -1,12 +1,15 @@
-[gd_scene load_steps=43 format=3 uid="uid://clsclallfg8yk"]
+[gd_scene load_steps=46 format=3 uid="uid://clsclallfg8yk"]
 
 [ext_resource type="Script" uid="uid://djm4tk5gmq1gl" path="res://scripts/character_body_2d.gd" id="1_ij6vw"]
+[ext_resource type="Texture2D" uid="uid://d37u8vpxevmon" path="res://sprites/character/charslice1(1).png" id="2_cibgq"]
 [ext_resource type="Texture2D" uid="uid://bjtwb5mxgudp3" path="res://sprites/character/char_spritesheet2.png" id="2_ij6vw"]
-[ext_resource type="Texture2D" uid="uid://ca1tbmaedtk7x" path="res://sprites/vfx/sliceanims/slice1.png" id="3_t53lx"]
-[ext_resource type="Texture2D" uid="uid://bxr78mqquor8m" path="res://sprites/vfx/sliceanims/slice2.png" id="4_yi2kj"]
-[ext_resource type="Texture2D" uid="uid://cahptcelheegu" path="res://sprites/vfx/sliceanims/slice3.png" id="5_cibgq"]
-[ext_resource type="Texture2D" uid="uid://dk77g7yqp7i3g" path="res://sprites/vfx/sliceanims/slice4.png" id="6_mfdas"]
-[ext_resource type="Texture2D" uid="uid://beuflhkloijnj" path="res://sprites/vfx/sliceanims/slice5.png" id="7_8nwgm"]
+[ext_resource type="Texture2D" uid="uid://dpmpa5ainhywo" path="res://sprites/character/charattack2.png" id="3_mfdas"]
+[ext_resource type="Texture2D" uid="uid://bwxpp0tjk70ea" path="res://sprites/vfx/sliceanims/slice1move.png" id="5_mfdas"]
+[ext_resource type="Texture2D" uid="uid://dt24ygax25s2n" path="res://sprites/vfx/sliceanims/slice2move.png" id="6_8nwgm"]
+[ext_resource type="Texture2D" uid="uid://dj3qf1g25lyje" path="res://sprites/vfx/sliceanims/slice3move.png" id="7_7pl6r"]
+[ext_resource type="Texture2D" uid="uid://bgfua2v85bqt1" path="res://sprites/vfx/sliceanims/slice4move.png" id="8_x5gf8"]
+[ext_resource type="Texture2D" uid="uid://xuefs1a6p1fs" path="res://sprites/vfx/sliceanims/slice5move.png" id="9_42hdn"]
+[ext_resource type="Texture2D" uid="uid://beuflhkloijnj" path="res://sprites/vfx/sliceanims/slice6move.png" id="10_el37e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_44cfe"]
 size = Vector2(4, 12)
@@ -141,6 +144,17 @@ region = Rect2(64, 384, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dd465"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_cibgq")
+}, {
+"duration": 2.0,
+"texture": ExtResource("3_mfdas")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 12.0
+}, {
 "frames": [{
 "duration": 0.5,
 "texture": SubResource("AtlasTexture_ghijl")
@@ -287,19 +301,22 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_t53lx")
+"texture": ExtResource("5_mfdas")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_yi2kj")
+"texture": ExtResource("6_8nwgm")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_cibgq")
+"texture": ExtResource("7_7pl6r")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_mfdas")
+"texture": ExtResource("8_x5gf8")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_8nwgm")
+"texture": ExtResource("9_42hdn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_el37e")
 }],
 "loop": false,
 "name": &"default",
@@ -317,7 +334,9 @@ shape = SubResource("RectangleShape2D_44cfe")
 texture_filter = 1
 position = Vector2(-1, 0)
 sprite_frames = SubResource("SpriteFrames_dd465")
-animation = &"dive"
+animation = &"attack"
+frame = 1
+frame_progress = 0.22044526
 
 [node name="CoyoteTime" type="Timer" parent="."]
 wait_time = 0.1
@@ -340,7 +359,6 @@ zoom = Vector2(3, 3)
 
 [node name="SliceAnim" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(3, -5)
 sprite_frames = SubResource("SpriteFrames_7pl6r")
-frame = 4
+frame = 5
 frame_progress = 1.0

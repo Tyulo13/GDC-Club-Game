@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dpmpa5ainhywo"
-path="res://.godot/imported/charslice2.png-447c0d22b0cc323395f154c227a6c444.ctex"
+uid="uid://xuefs1a6p1fs"
+path="res://.godot/imported/slice5move.png-087c414806bc9ae3ec104d0914ad7451.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/character/charslice2.png"
-dest_files=["res://.godot/imported/charslice2.png-447c0d22b0cc323395f154c227a6c444.ctex"]
+source_file="res://sprites/vfx/sliceanims/slice5move.png"
+dest_files=["res://.godot/imported/slice5move.png-087c414806bc9ae3ec104d0914ad7451.ctex"]
 
 [params]
 
