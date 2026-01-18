@@ -361,6 +361,7 @@ zoom = Vector2(3, 3)
 
 [node name="SliceAnim" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
+scale = Vector2(2, 1)
 sprite_frames = SubResource("SpriteFrames_7pl6r")
 frame = 5
 frame_progress = 1.0
