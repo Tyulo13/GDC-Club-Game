@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://7sx340yere3d"]
+[gd_scene load_steps=11 format=3 uid="uid://7sx340yere3d"]
 
 [ext_resource type="PackedScene" uid="uid://clsclallfg8yk" path="res://scenes/character_body_2d.tscn" id="1_u52ul"]
 [ext_resource type="Texture2D" uid="uid://bapsh36krydq2" path="res://image.webp" id="2_vonw3"]
 [ext_resource type="PackedScene" uid="uid://boh6e431e56dd" path="res://scenes/enemy_template.tscn" id="3_w8frs"]
 [ext_resource type="PackedScene" uid="uid://d05b5635tl6v3" path="res://scenes/parallax_background.tscn" id="4_mx8sn"]
+[ext_resource type="AudioStream" uid="uid://brgfjaggk3vh8" path="res://audio/music/03_The_ID_KLICKAUD.mp3" id="5_ppgk2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vonw3"]
 size = Vector2(1050.5, 59)
@@ -87,3 +88,8 @@ player = NodePath("../CharacterBody2D")
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("4_mx8sn")]
 position = Vector2(28, 108)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_ppgk2")
+volume_db = -35.0
+autoplay = true
