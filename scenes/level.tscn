@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://clsclallfg8yk" path="res://scenes/character_body_2d.tscn" id="1_u52ul"]
 [ext_resource type="Texture2D" uid="uid://bapsh36krydq2" path="res://image.webp" id="2_vonw3"]
 [ext_resource type="PackedScene" uid="uid://boh6e431e56dd" path="res://scenes/enemy_template.tscn" id="3_w8frs"]
-[ext_resource type="PackedScene" uid="uid://co15dk6dc7cpb" path="res://scenes/parallaxbackground.tscn" id="4_mx8sn"]
+[ext_resource type="PackedScene" uid="uid://d05b5635tl6v3" path="res://scenes/parallax_background.tscn" id="4_mx8sn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vonw3"]
 size = Vector2(1050.5, 59)
@@ -84,5 +84,5 @@ texture = ExtResource("2_vonw3")
 position = Vector2(94, 27)
 player = NodePath("../CharacterBody2D")
 
-[node name="Parallax2D" parent="." instance=ExtResource("4_mx8sn")]
-scroll_offset = Vector2(-566, 65)
+[node name="ParallaxBackground" parent="." instance=ExtResource("4_mx8sn")]
+position = Vector2(57, 230)
