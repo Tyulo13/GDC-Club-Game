@@ -23,6 +23,7 @@ size = Vector2(20, 125)
 [node name="Node2D" type="Node2D"]
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_u52ul")]
+position = Vector2(31, 78)
 collision_layer = 4
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
@@ -85,4 +86,4 @@ position = Vector2(94, 27)
 player = NodePath("../CharacterBody2D")
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("4_mx8sn")]
-position = Vector2(57, 230)
+position = Vector2(28, 108)

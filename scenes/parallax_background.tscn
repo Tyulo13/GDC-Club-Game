@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://d05b5635tl6v3"]
 
-[ext_resource type="Texture2D" uid="uid://b88d5tuftsmiu" path="res://sprites/backgrounds/skybackground.png" id="1_xoild"]
+[ext_resource type="Texture2D" uid="uid://cpck7l3qeftfa" path="res://sprites/backgrounds/solidcolorbg2.png" id="1_qs7dk"]
 [ext_resource type="Texture2D" uid="uid://n5amtistp3l" path="res://sprites/backgrounds/skybackground2.png" id="2_kwhg4"]
 [ext_resource type="Texture2D" uid="uid://b6aws8ft0tg44" path="res://sprites/backgrounds/skybackground3.png" id="3_hy12d"]
 [ext_resource type="Texture2D" uid="uid://bto1ph6gvgdxn" path="res://sprites/backgrounds/skybackground4.png" id="4_m5fgl"]
@@ -9,17 +9,19 @@
 
 [node name="ParallaxBackground" type="Node2D"]
 z_index = -100
+texture_filter = 1
+scale = Vector2(0.5, 0.5)
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
-scroll_scale = Vector2(0.1, 0.01)
-repeat_size = Vector2(640, 0)
+scroll_scale = Vector2(0.005, 0)
+repeat_size = Vector2(640, 320)
 repeat_times = 10
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D"]
-texture = ExtResource("1_xoild")
+texture = ExtResource("1_qs7dk")
 
 [node name="Parallax2D2" type="Parallax2D" parent="."]
-scroll_scale = Vector2(0.2, 0.02)
+scroll_scale = Vector2(0.01, 0)
 repeat_size = Vector2(640, 0)
 repeat_times = 10
 
@@ -27,7 +29,7 @@ repeat_times = 10
 texture = ExtResource("2_kwhg4")
 
 [node name="Parallax2D3" type="Parallax2D" parent="."]
-scroll_scale = Vector2(0.3, 0.03)
+scroll_scale = Vector2(0.03, 0)
 repeat_size = Vector2(640, 0)
 repeat_times = 10
 
@@ -35,7 +37,7 @@ repeat_times = 10
 texture = ExtResource("3_hy12d")
 
 [node name="Parallax2D4" type="Parallax2D" parent="."]
-scroll_scale = Vector2(0.4, 0.04)
+scroll_scale = Vector2(0.05, 0)
 repeat_size = Vector2(640, 0)
 repeat_times = 10
 
@@ -43,14 +45,14 @@ repeat_times = 10
 texture = ExtResource("4_m5fgl")
 
 [node name="Parallax2D5" type="Parallax2D" parent="."]
-scroll_scale = Vector2(0.5, 0.05)
+scroll_scale = Vector2(0.1, 0)
 repeat_size = Vector2(640, 0)
 repeat_times = 10
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D5"]
 texture = ExtResource("5_4srxt")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D2" type="Sprite2D" parent="Parallax2D5"]
 position = Vector2(-18, 305)
 scale = Vector2(10, 1)
 texture = ExtResource("6_qs7dk")
