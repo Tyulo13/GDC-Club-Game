@@ -43,14 +43,7 @@ func _physics_process(delta: float) -> void:
 		$AnimatedSprite2D.modulate = Color(1, 1,1)
 		IFRAMES = 0
 	
-	if !is_on_wall_only():
-		if velocity.y < 0:
-			GRAVITY = 600 # rise gravity
-		elif velocity.y < 100:
-			GRAVITY = 500 # apex gravity
-		else:
-			GRAVITY = 1000 # fall gravity
-	elif !direction:
+	if !is_on_wall_only() or !direction:
 		if velocity.y < 0:
 			GRAVITY = 600 # rise gravity
 		elif velocity.y < 100:
