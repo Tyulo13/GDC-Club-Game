@@ -1,6 +1,7 @@
-[gd_scene load_steps=46 format=3 uid="uid://clsclallfg8yk"]
+[gd_scene load_steps=47 format=3 uid="uid://clsclallfg8yk"]
 
 [ext_resource type="Script" uid="uid://djm4tk5gmq1gl" path="res://scripts/character_body_2d.gd" id="1_ij6vw"]
+[ext_resource type="PackedScene" uid="uid://butgvviqx5tg6" path="res://scenes/grapple_hook_system.tscn" id="2_8nwgm"]
 [ext_resource type="Texture2D" uid="uid://d37u8vpxevmon" path="res://sprites/character/charslice1(1).png" id="2_cibgq"]
 [ext_resource type="Texture2D" uid="uid://bjtwb5mxgudp3" path="res://sprites/character/char_spritesheet2.png" id="2_ij6vw"]
 [ext_resource type="Texture2D" uid="uid://dpmpa5ainhywo" path="res://sprites/character/charattack2.png" id="3_mfdas"]
@@ -327,6 +328,7 @@ animations = [{
 [node name="CharacterBody2D" type="CharacterBody2D"]
 collision_mask = 3
 script = ExtResource("1_ij6vw")
+grapplehook = ExtResource("2_8nwgm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_mfdas")

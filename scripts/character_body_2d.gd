@@ -184,20 +184,23 @@ func _physics_process(delta: float) -> void:
 			canHook = false
 			
 			hookclone = grapplehook.instantiate()
-			level.add_child(hookclone)
+			
 			hookclone.global_position = self.global_position
 			hookclone.global_rotation = direction_vector.angle()
+			level.add_child(hookclone)
+			print(hookclone.name)
 			hookclone.player = self
-			hookclone.apply_central_impulse((direction_vector * GRAPPLE_VELOCITY) + self.get_real_velocity())
+			hookclone.get_node("GrappleHook").apply_central_impulse((direction_vector * GRAPPLE_VELOCITY) + self.get_real_velocity())
 			
 	if Input.is_action_just_released("grappling_hook"):
 		self.reparent(level)
 		if is_instance_valid(hookclone):
-			hookclone.freeze = true
-			while is_instance_valid(hookclone) and (hookclone.global_position - self.global_position).length() > 20: # keeps drawing the hookclone closer as long as the distance between player and hook is larger than 20
+			var hookdecal = hookclone.grapplehook
+			hookdecal.freeze = true
+			while is_instance_valid(hookclone) and (hookdecal.global_position - self.global_position).length() > 20: # keeps drawing the hookclone closer as long as the distance between player and hook is larger than 20
 				if is_instance_valid(hookclone):	
-					var gdirection = (hookclone.global_position - self.global_position).normalized()
-					hookclone.global_position -= gdirection * 10
+					var gdirection = (hookdecal.global_position - self.global_position).normalized()
+					hookdecal.global_position -= gdirection * 10
 					await(get_tree().process_frame)
 			canHook = true
 			if is_instance_valid(hookclone):	

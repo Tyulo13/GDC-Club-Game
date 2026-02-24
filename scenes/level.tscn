@@ -1,7 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://7sx340yere3d"]
+[gd_scene load_steps=11 format=3 uid="uid://7sx340yere3d"]
 
 [ext_resource type="PackedScene" uid="uid://clsclallfg8yk" path="res://scenes/character_body_2d.tscn" id="1_u52ul"]
-[ext_resource type="PackedScene" uid="uid://ci15jdgd1qvgi" path="res://scenes/grapple_hook.tscn" id="2_2r41h"]
 [ext_resource type="Texture2D" uid="uid://bapsh36krydq2" path="res://image.webp" id="2_vonw3"]
 [ext_resource type="PackedScene" uid="uid://boh6e431e56dd" path="res://scenes/enemy_template.tscn" id="3_w8frs"]
 [ext_resource type="PackedScene" uid="uid://d05b5635tl6v3" path="res://scenes/parallax_background.tscn" id="4_mx8sn"]
@@ -27,7 +26,6 @@ size = Vector2(20, 125)
 [node name="CharacterBody2D" parent="." node_paths=PackedStringArray("level") instance=ExtResource("1_u52ul")]
 position = Vector2(35, 78)
 collision_layer = 4
-grapplehook = ExtResource("2_2r41h")
 level = NodePath("..")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]

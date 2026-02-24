@@ -1,22 +1,32 @@
-extends RigidBody2D
+extends Node2D
 @export var player : CharacterBody2D
+@export var grapplehook : RigidBody2D
 
 
-func _on_body_entered(body: Node) -> void:
+
+
+func _on_grapple_hook_body_entered(body: Node) -> void:
 	if is_instance_valid(player):
-		print("hit")
-		$HookPoint.add_child(player)
-		freeze = true
-		self.linear_velocity = Vector2.ZERO
+		
+		$HitPoint.global_position = grapplehook.global_position
+		$PinJoint2D.global_position = $HitPoint.global_position
+		$HookPoint.global_position = player.global_position
+		$HookPoint.gravity_scale = 1
+		
+		
+		
+		#player.reparent($HookPoint)
+		grapplehook.reparent($HitPoint)
+		grapplehook.gravity_scale = 0
+		grapplehook.linear_velocity = Vector2.ZERO
+
 		
 		
 func _physics_process(delta: float) -> void:
-	var velocity = self.linear_velocity.normalized()
-	self.global_rotation = velocity.angle()
+	var velocity = grapplehook.linear_velocity.normalized()
+	grapplehook.global_rotation = velocity.angle()
 	
-	if freeze == false:
-		if is_instance_valid(player):
-			$HookPoint.global_position = player.global_position
+
 	
 	
 	

@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://butgvviqx5tg6"]
+
+[ext_resource type="Script" uid="uid://dcv631riaqhex" path="res://scripts/grapple_hook.gd" id="1_l8v3n"]
+[ext_resource type="Texture2D" uid="uid://6we4ma8io3ae" path="res://hook_ring_placeholder.webp" id="1_tgkgx"]
+[ext_resource type="PackedScene" uid="uid://ci15jdgd1qvgi" path="res://scenes/grapple_hook.tscn" id="2_l8v3n"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_14hbs"]
+
+[node name="GrappleHookSystem" type="Node2D" node_paths=PackedStringArray("grapplehook")]
+script = ExtResource("1_l8v3n")
+grapplehook = NodePath("GrappleHook")
+
+[node name="HookPoint" type="RigidBody2D" parent="."]
+position = Vector2(0, 51)
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HookPoint"]
+shape = SubResource("CircleShape2D_14hbs")
+disabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="HookPoint"]
+texture = ExtResource("1_tgkgx")
+
+[node name="HitPoint" type="StaticBody2D" parent="."]
+collision_layer = 8
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitPoint"]
+shape = SubResource("CircleShape2D_14hbs")
+disabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="HitPoint"]
+modulate = Color(0.7689408, 0.16040173, 0.2296952, 1)
+texture = ExtResource("1_tgkgx")
+
+[node name="GrappleHook" parent="." instance=ExtResource("2_l8v3n")]
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+node_a = NodePath("../HitPoint")
+node_b = NodePath("../HookPoint")
+
+[connection signal="body_entered" from="GrappleHook" to="." method="_on_grapple_hook_body_entered"]
