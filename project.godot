@@ -67,6 +67,13 @@ attack={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="level"
+2d_physics/layer_2="enemies"
+2d_physics/layer_3="player"
+2d_physics/layer_4="grapplehook"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

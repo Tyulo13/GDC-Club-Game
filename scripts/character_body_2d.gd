@@ -1,10 +1,14 @@
 extends CharacterBody2D
 @export var HEALTH : float = 10.0
 @export var IFRAMES : float = 0.0
+@export var grapplehook : PackedScene
+@export var level : Node2D
 
 const SPEED = 120.0
 const JUMP_VELOCITY = -200.0
 const DASH_VELOCITY = 500
+const GRAPPLE_VELOCITY = 300
+const HOOK_LENGTH = 150
 
 var isHITSTOP := false
 var coyote_time_activated := false
@@ -17,6 +21,9 @@ var InputDIRECTION := 1
 var canDOUBLEJUMP := true
 var canATTACK : bool = true
 var attacking : bool = false
+
+var canHook : bool = true	
+var hookclone = null
 
 var isDASHING := false
 var canDASH := true
@@ -87,6 +94,7 @@ func _physics_process(delta: float) -> void:
 		InputDIRECTION = -1
 	if Input.is_action_just_pressed("move_right"):
 		InputDIRECTION = 1
+	
 	
 	# dive kick
 	if Input.is_action_just_pressed("jump") and Input.is_action_pressed("move_down") and !is_on_floor():
@@ -169,6 +177,33 @@ func _physics_process(delta: float) -> void:
 		canDOUBLEJUMP = true
 		isWALLRUN = false
 		velocity.y = -200
+		
+	if Input.is_action_just_pressed("grappling_hook"):
+		var direction_vector: Vector2 = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+		if canHook:
+			canHook = false
+			
+			hookclone = grapplehook.instantiate()
+			level.add_child(hookclone)
+			hookclone.global_position = self.global_position
+			hookclone.global_rotation = direction_vector.angle()
+			hookclone.player = self
+			hookclone.apply_central_impulse((direction_vector * GRAPPLE_VELOCITY) + self.get_real_velocity())
+			
+	if Input.is_action_just_released("grappling_hook"):
+		self.reparent(level)
+		if is_instance_valid(hookclone):
+			hookclone.freeze = true
+			while is_instance_valid(hookclone) and (hookclone.global_position - self.global_position).length() > 20: # keeps drawing the hookclone closer as long as the distance between player and hook is larger than 20
+				if is_instance_valid(hookclone):	
+					var gdirection = (hookclone.global_position - self.global_position).normalized()
+					hookclone.global_position -= gdirection * 10
+					await(get_tree().process_frame)
+			canHook = true
+			if is_instance_valid(hookclone):	
+				hookclone.queue_free()
+			
+			
 	
 	# flips the players direction
 	if direction > 0:
