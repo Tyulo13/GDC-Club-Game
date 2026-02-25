@@ -9,13 +9,14 @@ func _on_grapple_hook_body_entered(body: Node) -> void:
 	if is_instance_valid(player):
 		
 		$HitPoint.global_position = grapplehook.global_position
-		$PinJoint2D.global_position = $HitPoint.global_position
-		$HookPoint.global_position = player.global_position
+	#	$PinJoint2D.global_position = $HitPoint.global_position
+		
 		$HookPoint.gravity_scale = 1
+		player.isHooked = true
 		
 		
 		
-		#player.reparent($HookPoint)
+		player.reparent($HookPoint)
 		grapplehook.reparent($HitPoint)
 		grapplehook.gravity_scale = 0
 		grapplehook.linear_velocity = Vector2.ZERO
@@ -25,8 +26,12 @@ func _on_grapple_hook_body_entered(body: Node) -> void:
 func _physics_process(delta: float) -> void:
 	var velocity = grapplehook.linear_velocity.normalized()
 	grapplehook.global_rotation = velocity.angle()
-	
-
+	if player.isHooked  == true:
+		for child in $HookPoint.get_children():
+				if "position" in child:
+					child.position = Vector2(0,0)
+	else:
+		$HookPoint.global_position = player.global_position
 	
 	
 	
