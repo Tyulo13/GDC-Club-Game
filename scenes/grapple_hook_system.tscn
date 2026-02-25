@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://ci15jdgd1qvgi" path="res://scenes/grapple_hook.tscn" id="2_l8v3n"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_14hbs"]
+radius = 5.0990195
 
 [node name="GrappleHookSystem" type="Node2D" node_paths=PackedStringArray("grapplehook")]
 script = ExtResource("1_l8v3n")
@@ -12,8 +13,8 @@ grapplehook = NodePath("GrappleHook")
 
 [node name="HookPoint" type="RigidBody2D" parent="."]
 position = Vector2(0, 51)
-collision_layer = 0
-collision_mask = 0
+collision_layer = 8
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HookPoint"]
 shape = SubResource("CircleShape2D_14hbs")

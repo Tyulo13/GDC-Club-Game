@@ -6,6 +6,7 @@ extends CharacterBody2D
 @export var level : Node2D
 
 const SPEED = 120.0
+const ACCELERATION = 1000
 const JUMP_VELOCITY = -200.0
 const DASH_VELOCITY = 500
 const GRAPPLE_VELOCITY = 300
@@ -123,24 +124,21 @@ func _physics_process(delta: float) -> void:
 			canATTACK = true
 		
 		# moves the player left and right
+		var aerialfactor = 1 # makes acceleration slower if you're airborne
+		var currentacceleration = ACCELERATION * (1.0 + (1.0 - (clamp(abs(velocity.x), -SPEED, SPEED) / SPEED)))
+		if !is_on_floor():
+				aerialfactor = 0.6
 		if direction and !isWALLRUN:
-			if abs(velocity.x) > 250:
-				velocity.x = move_toward(velocity.x, direction * SPEED, 5)
-				# if high velocity, slowly decelerates the player to walking speed
-			else:
-				velocity.x = move_toward(velocity.x, direction * SPEED, 10)
-				# if low velocity, quickly deccelerates the player to walking speed
+			velocity.x = move_toward(velocity.x, direction * SPEED, delta * aerialfactor * currentacceleration)
+			# if high velocity, slowly decelerates the player to walking speed
 		else:
-			if abs(velocity.x) > 250:
-				velocity.x = move_toward(velocity.x, 0, 5)
-				# if high velocity, slowly decelerates the player to stop
-			else:
-				velocity.x = move_toward(velocity.x, 0, 10)
-				# if low velocity, quickly deccelerates the player to stop
+			velocity.x = move_toward(velocity.x, 0,  delta * aerialfactor * currentacceleration)
+			# if high velocity, slowly decelerates the player to stop
+
 		
 		# dash input
 		if Input.is_action_just_pressed("dash") and canDASH and !is_on_wall_only() and velocity.x != 0:
-			isDASHING = true
+			isDASHING = true 
 			velocity.y = velocity.y - velocity.y
 			velocity.x = velocity.x / 100
 			await(get_tree().create_timer(0.083, true, false, true).timeout)
