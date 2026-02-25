@@ -7,9 +7,10 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_14hbs"]
 radius = 5.0990195
 
-[node name="GrappleHookSystem" type="Node2D" node_paths=PackedStringArray("grapplehook")]
+[node name="GrappleHookSystem" type="Node2D" node_paths=PackedStringArray("grapplehook", "rope")]
 script = ExtResource("1_l8v3n")
 grapplehook = NodePath("GrappleHook")
+rope = NodePath("Rope")
 
 [node name="HookPoint" type="RigidBody2D" parent="."]
 position = Vector2(0, 51)
@@ -21,6 +22,7 @@ gravity_scale = 0.0
 shape = SubResource("CircleShape2D_14hbs")
 
 [node name="Sprite2D" type="Sprite2D" parent="HookPoint"]
+visible = false
 texture = ExtResource("1_tgkgx")
 
 [node name="HitPoint" type="StaticBody2D" parent="."]
@@ -32,6 +34,7 @@ shape = SubResource("CircleShape2D_14hbs")
 disabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="HitPoint"]
+visible = false
 modulate = Color(0.7689408, 0.16040173, 0.2296952, 1)
 texture = ExtResource("1_tgkgx")
 
@@ -40,5 +43,10 @@ node_a = NodePath("..")
 softness = 1.0
 
 [node name="GrappleHook" parent="." instance=ExtResource("2_l8v3n")]
+
+[node name="Rope" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0, 0, 0)
+width = 1.0
+default_color = Color(0.46366978, 0.24419552, 0.110574715, 1)
 
 [connection signal="body_entered" from="GrappleHook" to="." method="_on_grapple_hook_body_entered"]

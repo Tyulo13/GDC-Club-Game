@@ -1,7 +1,7 @@
 extends Node2D
 @export var player : CharacterBody2D
 @export var grapplehook : RigidBody2D
-
+@export var rope : Line2D
 
 
 
@@ -28,8 +28,12 @@ func _on_grapple_hook_body_entered(body: Node) -> void:
 		
 		
 func _physics_process(delta: float) -> void:
-	var velocity = grapplehook.linear_velocity.normalized()
-	grapplehook.global_rotation = velocity.angle()
+	if is_instance_valid(grapplehook):
+		var velocity = grapplehook.linear_velocity.normalized()
+		grapplehook.global_rotation = velocity.angle()
+		rope.points[0] = grapplehook.global_position * rope.global_transform
+		rope.points[1] = player.global_position * rope.global_transform
+	
 	if player.isHooked  == true:
 		for child in $HookPoint.get_children():
 				if "position" in child:
