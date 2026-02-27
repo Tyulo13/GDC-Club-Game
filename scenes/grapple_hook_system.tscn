@@ -13,7 +13,6 @@ grapplehook = NodePath("GrappleHook")
 rope = NodePath("Rope")
 
 [node name="HookPoint" type="RigidBody2D" parent="."]
-position = Vector2(0, 51)
 collision_layer = 8
 collision_mask = 3
 gravity_scale = 0.0
@@ -40,7 +39,7 @@ texture = ExtResource("1_tgkgx")
 
 [node name="PinJoint2D" type="PinJoint2D" parent="HitPoint"]
 node_a = NodePath("..")
-softness = 1.0
+softness = 1.87
 
 [node name="GrappleHook" parent="." instance=ExtResource("2_l8v3n")]
 
