@@ -6,7 +6,7 @@ extends CharacterBody2D
 @export var level : Node2D
 
 const SPEED = 120.0
-const ACCELERATION = 1000
+const ACCELERATION = 1500
 const JUMP_VELOCITY = -200.0
 const DASH_VELOCITY = 500
 const GRAPPLE_VELOCITY = 300
