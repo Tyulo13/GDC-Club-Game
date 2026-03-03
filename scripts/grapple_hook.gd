@@ -7,10 +7,10 @@ extends Node2D
 
 func _on_grapple_hook_body_entered(body: Node) -> void:
 	if is_instance_valid(player):
-		
+		var playervelocity = player.get_real_velocity()
 		$HitPoint.global_position = grapplehook.global_position
 		$HookPoint.global_position = player.global_position
-		$HookPoint.linear_velocity = player.get_real_velocity()
+		$HookPoint.linear_velocity = playervelocity
 		
 		
 		$HookPoint.gravity_scale = 1

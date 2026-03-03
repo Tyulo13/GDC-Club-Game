@@ -18,7 +18,7 @@ var coyote_time_activated := false
 var GRAVITY := 0
 
 var DIRECTION := 1
-var InputDIRECTION := 1
+
 
 var canDOUBLEJUMP := true
 var canATTACK : bool = true
@@ -95,10 +95,6 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_just_released("jump") and velocity.y < 0:
 			velocity.y = JUMP_VELOCITY / 3
 		
-		if Input.is_action_just_pressed("move_left"):
-			InputDIRECTION = -1
-		if Input.is_action_just_pressed("move_right"):
-			InputDIRECTION = 1
 		
 		
 		# dive kick
@@ -143,7 +139,7 @@ func _physics_process(delta: float) -> void:
 			velocity.x = velocity.x / 100
 			await(get_tree().create_timer(0.083, true, false, true).timeout)
 			velocity.y = velocity.y - velocity.y - 50
-			velocity.x = InputDIRECTION * (abs(velocity.x) + 550) # 550 = dash strength
+			velocity.x = direction * (abs(velocity.x) + 550) # 550 = dash strength
 			canDASH = false
 			canRegainDASH = false
 			
